@@ -1,11 +1,12 @@
 const images = [
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
-    description: 'Hokkaido Flower',
-  },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg',
+ description: 'Hokkaido Flower',
+    },
+ 
   {
     preview:
       'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
@@ -54,12 +55,45 @@ const images = [
     original:
       'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
     description: 'Nature Landscape',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
-    description: 'Lighthouse Coast Sea',
+ },
+ {
+    preview:
+      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg',
+    original:
+     'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
+    description: 'Lighthouse Coast Sea',
   },
 ];
+
+const galeryContainerEl = document.querySelector(".gallery");
+ console.log(galeryContainerEl);
+const createGalery = array => {
+     array.map(item => {
+        const navItemEl = document.createElement("li");
+
+        console.log(navItemEl);
+
+        navItemEl.classList.add("galery-item");
+
+        const navLinkEl = document.createElement("a");             
+        navLinkEl.classList.add("gallery-link");
+        navLinkEl.href = "/large-image.jpg";
+        
+        // console.log(navLinkEl);
+        const galeryImgEl = document.createElement("img");
+        galeryImgEl.classList.add("galery-image");
+        galeryImgEl.src = item.preview;
+        galeryImgEl.alt = item.description;
+         galeryImgEl.dataset.source = item.original;
+         
+         navItemEl.append(navLinkEl); //додаю тег а в лішку
+         
+        navItemEl.append(galeryImgEl); // додаю тег img в лішку
+        
+        galeryContainerEl.append(navItemEl); //додаю лішку в ul-ку
+        // console.log(galeryContainerEl);
+        
+return galeryContainerEl;
+});
+}
+console.log(galeryContainerEl);
