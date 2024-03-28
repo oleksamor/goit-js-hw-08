@@ -7,54 +7,54 @@ const images = [
  description: 'Hokkaido Flower',
     },
  
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
-    description: 'Container Haulage Freight',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
-    description: 'Aerial Beach View',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
-    description: 'Flower Blooms',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
-    description: 'Alpine Mountains',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
-    description: 'Mountain Lake Sailing',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
-    description: 'Alpine Spring Meadows',
-  },
-  {
-    preview:
-      'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
-    original:
-      'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
-    description: 'Nature Landscape',
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
+ original:
+    'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
+ description: 'Container Haulage Freight',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
+ description: 'Aerial Beach View',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
+ description: 'Flower Blooms',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg',
+ description: 'Alpine Mountains',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
+ description: 'Mountain Lake Sailing',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
+ original:
+ 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
+ description: 'Alpine Spring Meadows',
+ },
+ {
+ preview:
+ 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
+ original:
+   'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
+  description: 'Nature Landscape',
  },
  {
     preview:
@@ -62,38 +62,66 @@ const images = [
     original:
      'https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg',
     description: 'Lighthouse Coast Sea',
-  },
+  },
 ];
 
 const galeryContainerEl = document.querySelector(".gallery");
- console.log(galeryContainerEl);
-const createGalery = array => {
-     array.map(item => {
-        const navItemEl = document.createElement("li");
 
-        console.log(navItemEl);
+galeryContainerEl.insertAdjacentHTML("beforeend", createMarkup(images));
+galeryContainerEl.addEventListener("click", handleCardClick);
 
-        navItemEl.classList.add("galery-item");
+const cardImg = document.querySelector("img");
 
-        const navLinkEl = document.createElement("a");             
-        navLinkEl.classList.add("gallery-link");
-        navLinkEl.href = "/large-image.jpg";
-        
-        // console.log(navLinkEl);
-        const galeryImgEl = document.createElement("img");
-        galeryImgEl.classList.add("galery-image");
-        galeryImgEl.src = item.preview;
-        galeryImgEl.alt = item.description;
-         galeryImgEl.dataset.source = item.original;
-         
-         navItemEl.append(navLinkEl); //додаю тег а в лішку
-         
-        navItemEl.append(galeryImgEl); // додаю тег img в лішку
-        
-        galeryContainerEl.append(navItemEl); //додаю лішку в ul-ку
-        // console.log(galeryContainerEl);
-        
-return galeryContainerEl;
-});
+cardImg.addEventListener('mouseenter', handleCardMouseEnter); 
+cardImg.addEventListener('mouseleave', handleCardMouseLeave);
+
+function handleCardMouseEnter(event) {
+  console.log(event.target);
 }
-console.log(galeryContainerEl);
+
+function handleCardMouseLeave(event) {
+  console.log(event.target.style.backgroundColor = '');
+}
+
+
+function createMarkup(array) {
+   return array
+      .map((cards) => `
+   <li class = "item gallery-item">
+      <a class="gallery-link" href="${cards.original}">
+            <img class = "gallery-image" src = "${cards.preview}" alt = "${cards.description}" data-source = "${cards.original}" 
+      </a>
+   </li>
+
+      `)
+
+      .join();
+
+}
+
+
+function handleCardClick(event) {
+   event.preventDefault();
+   if (event.target === event.currentTarget) {
+      return;
+   }
+   const currentCard = event.target.closest(".gallery-image");
+   const cardOriginal = currentCard.dataset.source;
+   const card = images.find(item => item.original === cardOriginal);
+  
+   const instance = basicLightbox.create(`
+      <div class="modal">
+         <img src = "${card.original}" class = modal img 
+      </div>
+   `,
+      {
+         onShow: (instance) => document.addEventListener('keydown', onEscClick),
+      });
+
+   instance.show();
+   function onEscClick(event) {
+      if (event.code === 'Escape') {
+         instance.close();
+      }
+   }
+}
