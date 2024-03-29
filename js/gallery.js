@@ -111,7 +111,7 @@ function handleCardClick(event) {
   
    const instance = basicLightbox.create(`
       <div class="modal">
-         <img src = "${card.original}" class = "img" />
+         <img src = "${card.original}" class = "img" alt = "${card.description}"/>
       </div>
    `,
       {
