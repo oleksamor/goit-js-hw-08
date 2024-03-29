@@ -65,10 +65,10 @@ const images = [
   },
 ];
 
-const galeryContainerEl = document.querySelector(".gallery");
+const galleryContainerEl = document.querySelector(".gallery");
 
-galeryContainerEl.insertAdjacentHTML("beforeend", createMarkup(images));
-galeryContainerEl.addEventListener("click", handleCardClick);
+galleryContainerEl.insertAdjacentHTML("beforeend", createMarkup(images));
+galleryContainerEl.addEventListener("click", handleCardClick);
 
 const cardImg = document.querySelector("img");
 
@@ -76,11 +76,11 @@ cardImg.addEventListener('mouseenter', handleCardMouseEnter);
 cardImg.addEventListener('mouseleave', handleCardMouseLeave);
 
 function handleCardMouseEnter(event) {
-  console.log(event.target);
+//   console.log(event.target);
 }
 
 function handleCardMouseLeave(event) {
-  console.log(event.target.style.backgroundColor = '');
+//   console.log(event.target.style.backgroundColor = '');
 }
 
 
@@ -92,8 +92,8 @@ function createMarkup(array) {
             <img class = "gallery-image" src = "${cards.preview}" alt = "${cards.description}" data-source = "${cards.original}" /> 
       </a>
    </li>
-      `)
-      .join();
+   `)
+      .join("");
 }
 
 
