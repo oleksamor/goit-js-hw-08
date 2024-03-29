@@ -72,16 +72,16 @@ galleryContainerEl.addEventListener("click", handleCardClick);
 
 const cardImg = document.querySelector("img");
 
-cardImg.addEventListener('mouseenter', handleCardMouseEnter); 
-cardImg.addEventListener('mouseleave', handleCardMouseLeave);
+// cardImg.addEventListener('mouseenter', handleCardMouseEnter); 
+// cardImg.addEventListener('mouseleave', handleCardMouseLeave);
 
-function handleCardMouseEnter(event) {
-//   console.log(event.target);
-}
+// function handleCardMouseEnter(event) {
+// //   console.log(event.target);
+// }
 
-function handleCardMouseLeave(event) {
-//   console.log(event.target.style.backgroundColor = '');
-}
+// function handleCardMouseLeave(event) {
+// //   console.log(event.target.style.backgroundColor = '');
+// }
 
 
 function createMarkup(array) {
@@ -109,6 +109,7 @@ function handleCardClick(event) {
    const instance = basicLightbox.create(`
       <div class="modal">
          <img src = "${card.original}" class = "img" alt = "${card.description}"/>
+         <p> "${card.description}"</p>;
       </div>
    `,
       {
