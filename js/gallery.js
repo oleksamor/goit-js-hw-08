@@ -87,9 +87,9 @@ const cardImg = document.querySelector("img");
 function createMarkup(array) {
    return array
       .map((cards) => `
-   <li class = "item gallery-item">
+   <li class = "item">
       <a class="gallery-link" href="${cards.original}">
-            <img class = "gallery-image" src = "${cards.preview}" alt = "${cards.description}" data-source = "${cards.original}" /> 
+            <img class = "gallery-image" src = "${cards.preview}" alt = "${cards.description}" data-source = "${cards.original}" > 
       </a>
    </li>
    `)
@@ -108,8 +108,8 @@ function handleCardClick(event) {
   
    const instance = basicLightbox.create(`
       <div class="modal">
-         <img src = "${card.original}" class = "img" alt = "${card.description}"/>
-         <p> "${card.description}"</p>;
+         <img src = "${card.original}" class = "img" alt = "${card.description}">
+         <h2> "${card.description}"</h2>;
       </div>
    `,
       {
@@ -117,6 +117,7 @@ function handleCardClick(event) {
       });
 
    instance.show();
+   
    function onEscClick(event) {
       if (event.code === 'Escape') {
          instance.close();
