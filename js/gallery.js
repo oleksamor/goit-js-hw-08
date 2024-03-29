@@ -92,11 +92,8 @@ function createMarkup(array) {
             <img class = "gallery-image" src = "${cards.preview}" alt = "${cards.description}" data-source = "${cards.original}" /> 
       </a>
    </li>
-
       `)
-
       .join();
-
 }
 
 
